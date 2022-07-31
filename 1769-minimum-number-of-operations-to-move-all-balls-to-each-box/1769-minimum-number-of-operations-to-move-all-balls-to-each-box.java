@@ -5,18 +5,12 @@ class Solution {
         char[] cArr = boxes.toCharArray();
         
         for(int i = 0; i<length; i++){
-            for(int j = 0; j <=i; j++){
-                if(j==i){
-                    continue;
-                }
+            for(int j = 0; j <i; j++){
             	char c = cArr[j];
                 res[i] += (i-j) * (c-'0');
             }
             
-            for(int j = i; j < length; j++){
-                if(j==i){
-                    continue;
-                }                
+            for(int j = i+1; j < length; j++){         
             	char c = cArr[j];
                 res[i] += (j-i) * (c-'0');
             }            
