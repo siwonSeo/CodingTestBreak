@@ -4,16 +4,24 @@ class Solution {
         int[] res = new int[length];
         char[] cArr = boxes.toCharArray();
         
+        int[] left = new int[length];
+        int[] right = new int[length];
+        
+        int count = cArr[0] - '0';
+        for(int i = 1; i < length; i++){
+            left[i] = left[i-1] + count;
+            count+=cArr[i]-'0';
+        }
+        
+        count = cArr[length-1] - '0';
+        
+        for(int i = length-2; i >=0; i--){
+            right[i] = right[i+1] + count;
+            count+=cArr[i]-'0';
+        }
+        
         for(int i = 0; i<length; i++){
-            for(int j = 0; j <i; j++){
-            	char c = cArr[j];
-                res[i] += (i-j) * (c-'0');
-            }
-            
-            for(int j = i+1; j < length; j++){         
-            	char c = cArr[j];
-                res[i] += (j-i) * (c-'0');
-            }            
+            res[i] = left[i] + right[i];
         }
         
         return res;
