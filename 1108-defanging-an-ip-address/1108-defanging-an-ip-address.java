@@ -1,17 +1,22 @@
 class Solution {
     public String defangIPaddr(String address) {
-        /*
-        StringBuilder sb = new StringBuilder();
-        String[] ipList = address.split("[.]");
-        for(int i = 0; i < ipList.length; i++){
-            if(i>0){
-                sb.append("[.]");
+        char[] cArr = new char[address.length()+6];
+        char[] addressArr = address.toCharArray();
+        int setIndex = 0;
+        for(int i = 0; i < addressArr.length; i++){
+            char c = addressArr[i];
+            if(c == '.'){
+                cArr[setIndex++] = '[';
+                cArr[setIndex++] = '.';
+                cArr[setIndex++] = ']';
+            }else{
+                cArr[setIndex++] = c;    
             }
-            sb.append(ipList[i]);
+            
         }
         
-        return sb.toString();
-        */
-        return address.replaceAll("[.]","[.]");
+        return new String(cArr);
+        
     }
+
 }
