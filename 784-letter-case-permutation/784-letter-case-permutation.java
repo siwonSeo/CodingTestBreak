@@ -20,16 +20,6 @@ class Solution {
             return;
         }
         char[] cArr = s.toCharArray();
-        /*
-        for(int i = index; i < list.size(); i++){
-            int idx = list.get(i);
-            char c = s.charAt(idx);
-            cArr[idx] = Character.toLowerCase(c);
-            setPermutation(new String(cArr), list, res,index+1);
-            cArr[idx] = Character.toUpperCase(c);
-            setPermutation(new String(cArr), list, res,index+1);            
-        }  
-        */
         
         int idx = list.get(index);
         char c = s.charAt(idx);
