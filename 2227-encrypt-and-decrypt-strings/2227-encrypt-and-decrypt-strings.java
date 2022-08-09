@@ -1,20 +1,22 @@
 class Encrypter {
     Map<Character,String> encTable;
-    Map<String,List<Character>> decTable;
+   // Map<String,List<Character>> decTable;
     Map<String,Integer> dictionaryMap;
     int decRes;
     public Encrypter(char[] keys, String[] values, String[] dictionary) {
         encTable = new HashMap<>();
-        decTable = new HashMap<>();
+        //decTable = new HashMap<>();
         dictionaryMap = new HashMap<>();
         for(int i = 0; i < keys.length; i++){
             encTable.put(keys[i], values[i]);
+            /*
             if(decTable.containsKey(values[i])){
                 decTable.get(values[i]).add(keys[i]);
             }else{
                 int k = i;
                 decTable.put(values[i],new ArrayList<Character>(){{add(keys[k]);}});
             }
+            */
             
         }
         
