@@ -40,9 +40,6 @@ class Encrypter {
                 dictionaryMap.put(d,dictionaryMap.getOrDefault(d,0)+1);
             }
         }
-        System.out.println(encTable);
-        System.out.println(decTable);
-        System.out.println(dictionaryMap);
     }
     
     public String encrypt(String word1) {
