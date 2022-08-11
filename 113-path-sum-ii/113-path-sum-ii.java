@@ -28,7 +28,7 @@ class Solution {
             }
             return;
         }
-        
+
         List<Integer> newPathList = new ArrayList<>(pathList);
         newPathList.add(root.val);
         currSum+=root.val;
@@ -37,7 +37,6 @@ class Solution {
             res.add(newPathList);
             return;
         }
-        
         
 
         
@@ -48,5 +47,6 @@ class Solution {
         if(root.right != null){
             setPath(root.right, currSum, targetSum, newPathList);
         }        
+       
     }
 }
