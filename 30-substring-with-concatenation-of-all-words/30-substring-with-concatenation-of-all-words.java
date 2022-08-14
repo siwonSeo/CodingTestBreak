@@ -2,7 +2,6 @@ class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
         List<Integer> res = new ArrayList<>();
         Map<String,Integer> wordMap = getWordsMap(words);
-        System.out.println(wordMap);
         int wordsLength = words.length;
         int wordLength = words[0].length();
         int subStrLength = wordsLength * wordLength;
@@ -10,19 +9,7 @@ class Solution {
             String subStr = s.substring(i,i+subStrLength);
             if(getMached(subStr,wordMap,wordLength)){
                 res.add(i);
-                /*
-                while(i+subStrLength+wordLength<s.length()){
-                String preStr = s.substring(i,i+wordLength);
-                String nextPreStr = s.substring(i+subStrLength,i+subStrLength+wordLength);
-                    if(preStr.equals(nextPreStr)){
-                        i+=wordLength;
-                        res.add(i);
-                    }else{
-                        //i+=(subStrLength+wordLength);
-                        break;
-                    }
-                }
-                */
+
             }
         }
                
