@@ -13,7 +13,6 @@
                     total += doReplace(i, s, t);
                     vis[i] = true;
                     flag = true;
-                    //res.add(0, i);
                     res.add(i);
 
                     if (total == t.length) {
