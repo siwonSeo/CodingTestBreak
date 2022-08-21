@@ -5,7 +5,7 @@ class Foo {
         
     }
 
-    synchronized public void first(Runnable printFirst) throws InterruptedException {
+     public synchronized void first(Runnable printFirst) throws InterruptedException {
         while(flag!=0){
             wait();
         }
@@ -15,7 +15,7 @@ class Foo {
         notifyAll();
     }
 
-    synchronized public void second(Runnable printSecond) throws InterruptedException {
+     public synchronized void second(Runnable printSecond) throws InterruptedException {
         while(flag!=1){
             wait();
         }
@@ -25,7 +25,7 @@ class Foo {
         notifyAll();
     }
 
-    synchronized public void third(Runnable printThird) throws InterruptedException {
+     public synchronized void third(Runnable printThird) throws InterruptedException {
         while(flag!=2){
             wait();
         }
