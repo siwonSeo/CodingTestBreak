@@ -10,9 +10,6 @@ class Solution {
             
             int tempCnt = 0;
             for(int j = start; j < to; j++){
-                System.out.println(j);
-                System.out.println(xIndex);
-                System.out.println(tempCnt);
                 pq.add(mat[j][xIndex+tempCnt]);
                 tempCnt++;
             }
