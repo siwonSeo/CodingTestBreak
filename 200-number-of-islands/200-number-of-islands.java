@@ -10,19 +10,15 @@ class Solution {
                 if(visited[i][j] || grid[i][j] == '0'){
                     continue;
                 }
-                
-                setLand(grid,i,j,true);
+                res++;
+                setLand(grid,i,j);
             }
         }
         
         return res;
     }
     
-    public void setLand(char[][] grid, int y, int x,boolean first){
-        if(first){
-            res++;
-        }        
-        
+    public void setLand(char[][] grid, int y, int x){
         int lengthY = grid.length;
         int lengthX = grid[0].length;
         if(y < 0 || y >= lengthY 
@@ -40,10 +36,10 @@ class Solution {
             return;
         }              
         
-        setLand(grid,y+1,x,false);
-        setLand(grid,y-1,x,false);
-        setLand(grid,y,x+1,false);
-        setLand(grid,y,x-1,false);         
+        setLand(grid,y+1,x);
+        setLand(grid,y-1,x);
+        setLand(grid,y,x+1);
+        setLand(grid,y,x-1);         
     }
    
 }
