@@ -27,7 +27,7 @@ class Solution {
         while(!queue.isEmpty()){
             int size = queue.size();
             List<Integer> numList = new ArrayList<>();
-            for(int i = 0; i < size; i++){
+            while(size-- > 0){
                 Node node = queue.poll();
                 List<Node> nodeList = node.children;
                 if(nodeList != null && !nodeList.isEmpty()){                    
