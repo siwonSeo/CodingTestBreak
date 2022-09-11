@@ -6,7 +6,7 @@ class Solution {
 
         Arrays.sort(engineerSpeedEff, (a, b) -> b[0] - a[0]);
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>(k, (a, b) -> a - b);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> a - b);
         
         long totalSpeedOfCurrentTeam = 0;
         long result = 0;
