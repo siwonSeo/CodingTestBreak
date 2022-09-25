@@ -6,7 +6,7 @@ class MyCircularQueue {
     int size;
     public MyCircularQueue(int k) {
         this.data = new int[k+1];
-        this.capacity = k;        
+        this.capacity = k+1;        
     }
     
     public boolean enQueue(int value) {
@@ -14,7 +14,7 @@ class MyCircularQueue {
             return false;
         }
         
-        rear = (rear + 1) % (capacity + 1);
+        rear = (rear + 1) % (capacity);
         data[rear] = value;        
         
         return true;
@@ -25,14 +25,14 @@ class MyCircularQueue {
             return false;
         }
 
-        start = (start + 1) % (capacity+1); 
+        start = (start + 1) % (capacity); 
         data[start] = -1;
         
         return true;        
     }
     
     public int Front() {
-        if(!isEmpty()) return data[(start + 1) % (capacity+1)];
+        if(!isEmpty()) return data[(start + 1) % (capacity)];
         return -1;
     }
     
@@ -46,7 +46,7 @@ class MyCircularQueue {
     }
     
     public boolean isFull() {
-        return (rear+1) % (capacity+1)  == start;
+        return (rear+1) % (capacity)  == start;
     }
 }
 
