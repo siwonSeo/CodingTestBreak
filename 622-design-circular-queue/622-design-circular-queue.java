@@ -25,9 +25,8 @@ class MyCircularQueue {
             return false;
         }
 
-        
-        data[(start + 1) % (capacity+1)] = -1;        
         start = (start + 1) % (capacity+1); 
+        data[start] = -1;
         
         return true;        
     }
