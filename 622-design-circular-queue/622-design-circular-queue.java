@@ -13,11 +13,9 @@ class MyCircularQueue {
         if(isFull()){
             return false;
         }
-        //data[rear] = value;
-        //rear = (rear + 1) % capacity;
         
         rear = (rear + 1) % (capacity + 1);
-        data[rear % (capacity+1)] = value;        
+        data[rear] = value;        
         
         return true;
     }
