@@ -6,7 +6,7 @@ class Solution {
             count[num] += num;
         }
         
-        int[] dp = new int[130003];
+        int[] dp = new int[10003];
         for(int i = 10000; i>= 0; i--){
             dp[i] = Math.max(count[i]+dp[i+2],dp[i+1]);
         }
