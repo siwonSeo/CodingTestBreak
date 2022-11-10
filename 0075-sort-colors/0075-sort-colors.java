@@ -8,8 +8,7 @@ class Solution {
         
         int indexStart = 0;
         for(int i = 0; i < numInfo.length; i++){
-            int cnt = numInfo[i];
-            
+            int cnt = numInfo[i];            
             for(int j = 0; j < cnt; j++){
                 nums[j+indexStart] = i;
             }
