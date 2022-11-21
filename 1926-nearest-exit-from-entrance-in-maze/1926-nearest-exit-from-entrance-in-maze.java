@@ -1,27 +1,37 @@
 class Solution {
-    private static final int[][] DIRS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-
     public int nearestExit(char[][] maze, int[] entrance) {
-        var q = new ArrayDeque<>(List.of(entrance));
+        int rows = maze.length;
+        int columns = maze[0].length;
+
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(entrance);
         maze[entrance[0]][entrance[1]] = '+';
 
-        for (int m = maze.length, n = maze[0].length, steps = 1; !q.isEmpty(); steps++)
-            for (var i = q.size(); i > 0; i--) {
-                var cell = q.poll();
+        int[][] directions = new int[][] {{0,1},{0,-1},{1,0},{-1,0}};
 
-                for (var dir : DIRS) {
-                    var r = cell[0] + dir[0];
-                    var c = cell[1] + dir[1];
+        int steps = 0;
+        int x, y;
+        while (!queue.isEmpty()) {
+            steps++;
 
-                    if (r == -1 || r == m || c == -1 || c == n || maze[r][c] == '+') // reached out of bounds or a wall
-                        continue;
-                    if (r == 0 || r == m - 1 || c == 0 || c == n - 1) // reached a border
-                        return steps;
+            int n = queue.size();
+            for (int i = 0; i < n; i++) {
+                int[] current = queue.poll();
 
-                    maze[r][c] = '+'; // mark visited
-                    q.add(new int[]{r, c});
+                for (int[] direction : directions) {
+                    x = current[0] + direction[0];
+                    y = current[1] + direction[1];
+
+                    if (x < 0 || x >= rows || y < 0 || y >= columns) continue;
+                    if (maze[x][y] == '+') continue;
+
+                    if (x == 0 || x == rows - 1 || y == 0 || y == columns - 1) return steps;
+
+                    maze[x][y] = '+';
+                    queue.offer(new int[]{x, y});
                 }
             }
+        }
         return -1;
-    }    
+    }
 }
